@@ -10,41 +10,29 @@ kivy.require('1.0.9')
 
 class main(App):
      def setup (self):
-           #inizializzazione
-           '''____________________________________________
-          |     GestioneFinestra - Manage Window!      |
-          |                                                                    |
-          |                      SETUP SCREEN                       |
-          |                                                                    |              
-          |     1 -> FULLSCREEN  Schermo intero         |
-          |     0 -> Window         Finestra                    |
-          |                                                                   |
-          |____________________________________________|
-           '''
-           print "test eseguito"
-           tuttoschermo=0 
-           x=200 # Grandezza schermo x ( size Window x )
-           y=300 # Grandezza schermo y ( size Window Y )
-           nomefinestra="Mia applicazione kivy"
-           title = 'Basic Application'
+           print "Access of setup successfull" # debug
+           FULLSCREEN=0 
+           x=200 # size Window X 
+           y=300 # size Window Y 
+           NameWindow="My application in kivy"
+           TitleApp = 'Basic Application'
            icon = 'custom-kivy-icon.png'
-           if tuttoschermo!=0:
-               print "imposto a tutto schermo!"
+           if FULLSCREEN!=0:
+               print "Set up Fullscreen my application! "
                Config.set('graphics' , 'fullscreen' , 'auto')
            else:
-               print "imposto a finestra con grandezza \nX = ",x , "\nY = " ,y
+               print "Setup window at \nX = ",x , "\nY = " ,y
                Config.set('graphics' , 'height' , x)
                Config.set('graphics' , 'height' , y)
            Config.write()
            
 class RunIT(  ):
     main().setup()
-    def avvio (self):
-           print "ciao sono dentro il main"
-           KIVY="./stile_pagina.kv"
-           print ("carico il file ", KIVY)
-           Builder.load_file(KIVY)  # Carica il file Kivy
-           pass
+    def RUN (self):
+           print "This message it's wrote at run"
+           KIVY="./style_page.kv"
+           print ("Load my file ", KIVY)
+           Builder.load_file(KIVY)  # load Kivy file
 
 if __name__ =="__main__":
-    RunIT().avvio()
+    RunIT().RUN()
